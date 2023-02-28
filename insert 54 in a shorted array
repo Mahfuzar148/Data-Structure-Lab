@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[10]={1,10,20,30,40,50,60,61,62};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int item = 54,index;
+    int i;
+   for( i=0;i<n;i++)
+   {
+       if(item<arr[i])
+       {
+           index = i;
+           break;
+       }
+   }
+   int value =arr[index];
+   //cout<<value<<endl;
+   arr[index] = item;
+   //cout<<arr[index]<<endl;
+   int j = ++i;
+  // cout<<j<<endl;
+   for(j;j<n;j++)
+   {
+       int tem = arr[j];
+       arr[j] = value;
+       value = tem;
+   }
+   for(int i =0;i<n;i++) cout<<arr[i]<<" ";
+   
+   return 0;
+
+}
