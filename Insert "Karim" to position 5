@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string str[7] = {"Alamin","Borhan","Dulal","Emon","Prodhan","Sujon"};
+    string item = "Karim";
+    int i,index;
+    int sz = sizeof(str)/sizeof(str[0]);
+   index = 5;
+
+    string value =str[index];
+
+   str[index] = item;
+
+   int j = ++index;
+
+   for(j;j<sz;j++)
+   {
+       string tem = str[j];
+       str[j] = value;
+       value = tem;
+   }
+   for(int i =0;i<sz;i++) cout<<str[i]<<" ";
+
+}
