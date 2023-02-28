@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-    string str[7] = {"amin","borhan","dulal","emon","prodhan","sujon"};
-    string item = "rahim";
+    string str[7] = {"Alamin","Borhan","Dulal","Emon","Prodhan","Sujon"};
+    string item = "Rahim";
     int i,index;
     int sz = sizeof(str)/sizeof(str[0]);
     cout<<sz<<endl;
