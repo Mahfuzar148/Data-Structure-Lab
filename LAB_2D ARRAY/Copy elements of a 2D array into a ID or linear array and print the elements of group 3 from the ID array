@@ -1,0 +1,40 @@
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int ROWS = 3;
+    const int COLS = 4;
+
+    int arr2D[ROWS][COLS] = {
+     {1, 2, 3, 4},
+     {5, 6, 7, 8},
+     {9, 10, 11, 12}
+     };
+    int arr1D[ROWS * COLS];
+
+    // Copy elements from 2D array into 1D array
+    int index = 0;
+    for (int i = 0; i < COLS; i++) {
+        for (int j = 0; j < ROWS; j++) {
+            arr1D[index] = arr2D[j][i];
+            index++;
+        }
+    }
+    cout<<"Elements of 1D array after copying from 2d array = ";
+    for(int i=0;i<ROWS*COLS;i++) cout<<arr1D[i]<<" ";
+    cout<<endl;
+
+    // Print elements of group 3 from 1D array
+    cout<<"Enter group number = ";
+    int n;
+    cin>>n;
+    cout << "Elements of group "<<n<< " in the 1D array: ";
+    for (int i = (n-1) * ROWS; i < n * ROWS; i++) {
+        cout << arr1D[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
