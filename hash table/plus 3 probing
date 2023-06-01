@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Hash Table size (prime number)
+const int TABLE_SIZE = 13;
+
+// Hash Table using Plus 3 Probing
+vector<int> plus3ProbingTable(TABLE_SIZE, -1);
+
+// Plus 3 Probing Hash Function
+int plus3ProbingHash(int key, int attempt) {
+    return (key + attempt * 3) % TABLE_SIZE;
+}
+
+// Insert an item into the hash table using Plus 3 Probing
+void plus3ProbingInsert(int key) {
+    int attempt = 0;
+    int index = plus3ProbingHash(key, attempt);
+
+    while (plus3ProbingTable[index] != -1) {
+        attempt++;
+        index = plus3ProbingHash(key, attempt);
+    }
+
+    plus3ProbingTable[index] = key;
+}
+
+// Search for an item in the hash table using Plus 3 Probing
+int plus3ProbingSearch(int key) {
+    int attempt = 0;
+    int index = plus3ProbingHash(key, attempt);
+
+    while (plus3ProbingTable[index] != key) {
+        if (plus3ProbingTable[index] == -1) {
+            return -1;  // Key not found
+        }
+        attempt++;
+        index = plus3ProbingHash(key, attempt);
+    }
+
+    return index;  // Key found at index
+}
+
+int main() {
+    // Inserting values into the hash table
+    plus3ProbingInsert(42);
+    plus3ProbingInsert(13);
+    plus3ProbingInsert(25);
+
+    // Searching for values in the hash table
+    int index = plus3ProbingSearch(13);
+    if (index != -1) {
+        cout << "Found at index " << index << endl;
+    } else {
+        cout << "Not found" << endl;
+    }
+
+    return 0;
+}
