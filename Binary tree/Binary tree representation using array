@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int sz = 8;
+string tree[sz];
+
+void print_tree()
+{
+    cout << "Node   " << "Left" << "      Right" << endl;
+    for (int i = 0; i < sz; i++)
+    {
+        if (!tree[i].empty())
+        {
+            cout << tree[i] << "      ";
+            if ((2 * i + 1) < sz &&!tree[2 * i + 1].empty())
+            {
+                cout << tree[2 * i + 1] << "      ";
+            }
+            else
+            {
+                cout << "        ";
+            }
+
+            if ((2 * i + 2) < sz && !tree[2 * i + 2].empty())
+            {
+                cout << tree[2 * i + 2] << endl;
+            }
+            else
+            {
+                cout << "\n";
+            }
+        }
+    }
+}
+
+int main()
+{
+    string key;
+    for (int i = 0; i < sz; i++)
+    {
+        cin >> key;
+        if(key=="NULL")
+        {
+            tree[i] ="";
+        }
+        else
+        {
+            tree[i] = key;
+        }
+
+    }
+
+    print_tree();
+    return 0;
+}
