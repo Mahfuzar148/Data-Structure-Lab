@@ -13,6 +13,21 @@ class Node{
    }
 
 };
+/**
+Read the value val for the root node.
+If val is -1, set root as nullptr.
+Otherwise, create a new Node with value val and assign it to root.
+Initialize a queue with root.
+Loop until the queue is not empty:
+Dequeue a node parent from the queue.
+Read the values l and r for left and right children.
+If l is not -1, create a new node left_child with value l and assign it to parent->left.
+If r is not -1, create a new node right_child with value r and assign it to parent->right.
+If left_child is not nullptr, enqueue it.
+If right_child is not nullptr, enqueue it.
+This shorter algorithm outlines the key steps you need to follow to create a binary tree using level-order traversal. 
+You can use this as a guide to write the code in your preferred programming language.
+ */
 Node *make_tree()
 {
     int val;
@@ -96,6 +111,13 @@ void print(Node *root)
         s.pop();
     }
 }
+/**
+Algorithm
+Remove the top element from stack 1.
+Push that element to stack 2.
+Check if the stack has left and right elements present. 
+If present, push them onto stack 1, first pushing the left child and then the right child
+*/
 void postorderPrint(Node* root) {
     if (root == nullptr)
         return;
@@ -121,6 +143,15 @@ void postorderPrint(Node* root) {
         s2.pop();
     }
 }
+/**
+Following is a simple stack based iterative process to print Preorder traversal.
+Create an empty stack nodeStack and push root node to stack.
+Do the following while nodeStack is not empty. 
+Pop an item from the stack and print it. 
+Push right child of a popped item to stack. 
+Push left child of a popped item to stack.
+  
+ */
 
 
 void printPreorder(Node* root) {
@@ -142,7 +173,16 @@ void printPreorder(Node* root) {
             s.push(current->left);
     }
 }
-
+/**
+Create an empty stack (say S).
+Initialize the current node as root.
+Push the current node to S and set current = current->left until current is NULL
+If current is NULL and the stack is not empty then:
+Pop the top item from the stack.
+Print the popped item and set current = popped_item->right 
+Go to step 3.
+If current is NULL and the stack is empty then we are done.
+*/
 void printInorder(Node* root) {
     if (root == nullptr) return;
 
